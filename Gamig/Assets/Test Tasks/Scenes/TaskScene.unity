@@ -1223,6 +1223,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0354054eb176b7c4e9826943dfa6bc6e, type: 3}
   - {fileID: 21300000, guid: 567b99777f32ae84bbac36d86548d562, type: 3}
   - {fileID: 21300000, guid: d7bbe7b5afc3179478ed2f03b329db21, type: 3}
+  LoginButton: {fileID: 2044367632}
 --- !u!114 &1028097710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2543,7 +2544,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:

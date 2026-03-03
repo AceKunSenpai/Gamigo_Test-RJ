@@ -24,6 +24,7 @@ namespace TestTask.Editable
         [SerializeField] Image monsterImage; 
         // List of sprites for different monster types (assign in inspector)
         [SerializeField] List<Sprite> monsterSprites; 
+        public Button LoginButton;
 
         private void Start() 
         {
@@ -86,6 +87,11 @@ namespace TestTask.Editable
             {
                 monsterInfoText.text = "No monster spawned.";
                 monsterHealthBar.value = 0;
+                ActiveMonsterSprite = monsterSprites[0];
+                monsterImage.sprite = ActiveMonsterSprite; // Set the monster image to the active sprite
+                monsterImage.color = Color.white; // Ensure the image is visible (in case it was hidden before)
+                monsterInfoText.text = "Monster Container";
+                monsterHealthBar.gameObject.SetActive(false);
             }
         }
 
@@ -107,6 +113,12 @@ namespace TestTask.Editable
                 // Instruction: an action (a button in the scene) should: Inform the server about which monster was hit. 
                 UpdateMonsterData();
             }
+        }
+
+        public void ClearMonster()
+        {
+            CurrentMonster = null;
+            UpdateMonsterData();
         }
     }
 }

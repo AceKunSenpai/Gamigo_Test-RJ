@@ -30,6 +30,7 @@ namespace TestTask.Editable
 
                 //Instruction: The Server Side should Inform the client about this monster via packet.
                 ClientManager.Instance.ClientMobsManager.CreateNewMonster(data);
+                ClientManager.Instance.ClientMobsManager.LoginButton.interactable = false;
             }
             // Login Response Failure
             else if(clientLogInResponse == LoginResponse.Failure)
@@ -44,6 +45,10 @@ namespace TestTask.Editable
                 
             }
         }
+
+        // RJ: Client Becomes Disconnected from login if the player tries logging in while already logged in
+        // Contingency plans: Relogin Attempt or Disable Login Button, or both.
+        // NOTE: Relogin Attempts fail. Make Login Button uninteractible without affecting appearance.
 
         public static bool ReLoginRequest(Packet packet)
         {
@@ -124,6 +129,8 @@ namespace TestTask.Editable
                 }
             }
             Debug.Log("Relog Attempts Exhausted");
+            ClientManager.Instance.ClientMobsManager.ClearMonster();
+            ClientManager.Instance.ClientColorManager.ClearColorButtons();
             yield return null;
         }
     }
