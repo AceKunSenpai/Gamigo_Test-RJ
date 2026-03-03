@@ -25,10 +25,14 @@ namespace TestTask.Editable
                 var data = ServerMock.Instance.ServerMobsManager.MonsterData;
 
                 //Instruction: The Server Side should Inform the client about this monster via packet.
-                // ClientManager.Instance.ClientMobsManager
+                ClientManager.Instance.ClientMobsManager.CreateNewMonster(data);
             }
             // Login Response Failure or undefined (default)
-            else
+            else if(clientLogInResponse == LoginResponse.Failure)
+            {
+                // Clear Color Buttons Here
+            }
+            else // clientLogInResponse == LoginResponse.undefined
             {
                 
             }
