@@ -13,7 +13,7 @@ namespace TestTask.Editable
 
         void Start()
         {
-            // CreateColorButtons(); // Call this method to create buttons when the game starts
+            
         }
 
         // Instruction: The Client Side should be able to request a set of colors from the server (via a UI button).
@@ -27,10 +27,11 @@ namespace TestTask.Editable
                     colors = RequestColors(RequestHowManyColors);
                 }
                 
+                Debug.Log("Requested "+colors.Count+" colors");
+
                 foreach (Color color in colors)
                 {
                     // Create a button and set its color to the current color in the list
-                    // This is just a placeholder for the actual button creation logic
                     GameObject button = Instantiate(colorButtonPrefab); // Instantiate a button from the prefab
                     button.transform.SetParent(buttonContainer, false); // Set the parent to the button container
                     button.GetComponent<UnityEngine.UI.Image>().color = new Color(color.r, color.g, color.b, color.a); // Set the button's color

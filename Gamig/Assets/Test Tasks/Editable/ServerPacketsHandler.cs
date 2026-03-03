@@ -77,7 +77,7 @@ namespace TestTask.Editable
 
 public enum LoginResponse
 {
-    undefined = 0,
-    Success = 1,
-    Failure = 2,
+    Success = 0,
+    Failure = 1,
+    undefined = 2,
 }

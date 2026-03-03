@@ -36,6 +36,8 @@ namespace TestTask.NonEditable
             PacketLatencyMock.Initialize(PacketSenderClient);
 
             PacketReceiverClient.BeginListening();
+
+            ServerPacketsHandler.ClientLoginResponse = LoginResponse.undefined;
         }
 
         public void LogIn()
