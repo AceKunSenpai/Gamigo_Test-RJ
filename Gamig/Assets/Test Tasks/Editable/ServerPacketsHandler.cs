@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using TestTask.NonEditable;
 using UnityEngine;
 
@@ -14,10 +13,10 @@ namespace TestTask.Editable
         {
             var clientLogInResponse = ServerMock.Instance.TryConnectClient(out var clientId);
             ClientLoginResponse = clientLogInResponse;
-            ServerMock.Instance.TryConnectionClient(out var clientID);
+            ServerMock.Instance.TryConnectClient(out var clientID);
             SendLoginResponse(clientLogInResponse, clientId);
 
-            Debug.Log("Received login request from client. Response: " +clientLoginResponse + " Client ID " +clientID);
+            Debug.Log("Received login request from client. Response: " + clientLogInResponse + " Client ID " +clientID);
 
             // Additional Logic for successful login can be added here, e.g. Initializing client data, sending initial game state, etc.
             if(clientLogInResponse == LoginResponse.Success)
@@ -26,8 +25,9 @@ namespace TestTask.Editable
                 var data = ServerMock.Instance.ServerMobsManager.MonsterData;
 
                 //Instruction: The Server Side should Inform the client about this monster via packet.
-                
+                // ClientManager.Instance.ClientMobsManager
             }
+            // Login Response Failure or undefined (default)
             else
             {
                 
@@ -54,6 +54,7 @@ namespace TestTask.Editable
 
 public enum LoginResponse
 {
-    Success = 0,
-    Failure = 1,
+    undefined = 0,
+    Success = 1,
+    Failure = 2,
 }
