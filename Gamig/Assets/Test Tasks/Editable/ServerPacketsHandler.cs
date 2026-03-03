@@ -1,5 +1,6 @@
 using TestTask.NonEditable;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace TestTask.Editable
 {
@@ -53,6 +54,24 @@ namespace TestTask.Editable
         }
 
         #endregion
+
+        public static List<Color> GetColorsFromServer(int howManyColors)
+        {
+            List<Color> returnColors = new List<Color>();
+            for(int i = 0; i<howManyColors; i++)
+            {
+                Vector3 ColorData;
+                ColorData.x = Mathf.Clamp01(Random.value); // Example of generating random color data for demonstration purposes
+                ColorData.y = Mathf.Clamp01(Random.value);
+                ColorData.z = Mathf.Clamp01(Random.value);
+                float alpha = 1.0f; // Example alpha value, can be modified as needed
+                returnColors.Add(new Color(ColorData.x, ColorData.y, ColorData.z, alpha));
+            }
+            
+            // This method would contain logic to request color data from the server and return it as a list of Color objects.
+            // For example, it could send a packet to the server requesting color data, and then wait for a response packet containing the color information, which it would then parse and return as a list of Color objects.
+            return returnColors;
+        }   
     }
 }
 
