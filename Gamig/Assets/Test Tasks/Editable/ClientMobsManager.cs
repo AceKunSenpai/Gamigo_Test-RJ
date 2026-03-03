@@ -44,7 +44,7 @@ namespace TestTask.Editable
             if (CurrentMonster != null)
             {
                 // monsterInfoText.text = $"Name: {CurrentMonster.MonsterName}\nType: {CurrentMonster.MonsterType}\nHealth: {CurrentMonster.MonsterCurrentHealth}/{CurrentMonster.MonsterMaxHealth}";
-                monsterInfoText.text = $"Name: {CurrentMonster.MonsterName}";
+                monsterInfoText.text = CurrentMonster.MonsterName;
                 if (monsterHealthBar != null)
                 {
                     monsterHealthBar.gameObject.SetActive(true);
